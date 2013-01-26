@@ -1,0 +1,9 @@
+QT -= core
+QT -= gui
+TARGET = clusterMaster
+unix:LIBS += -L/usr/lib -lboost_mpi -lmpi -lmpi_cxx -lboost_serialization -lboost_thread
+unix:INCLUDEPATH += ./include
+unix:INCLUDEPATH += /usr/include/mpi
+SOURCES += src/main.cpp
+SOURCES += src/ClusterConnectionImpl.cpp
+SOURCES += src/ClusterPollerImpl.cpp
