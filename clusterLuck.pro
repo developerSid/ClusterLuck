@@ -1,8 +1,13 @@
 QT -= core
 QT -= gui
-TARGET = clusterMaster
-unix:LIBS += -L/usr/lib -lboost_mpi -lmpi -lmpi_cxx -lboost_serialization -lboost_thread
+mac {
+  CONFIG -= app_bundle
+}
+TARGET = clusterLuck
+unix:LIBS += -L/usr/lib -L$(BOOST_HOME)/lib -L$(MPI_HOME)/lib -lboost_mpi -lmpi -lmpi_cxx -lboost_system -lboost_serialization -lboost_thread
 unix:INCLUDEPATH += ./include
+unix:INCLUDEPATH += $(BOOST_HOME)/include
+unix:INCLUDEPATH += $(MPI_HOME)/include
 unix:INCLUDEPATH += /usr/include/mpi
 SOURCES += src/main.cpp
 SOURCES += src/ClusterConnectionImpl.cpp
