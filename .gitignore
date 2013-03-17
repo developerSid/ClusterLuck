@@ -17,3 +17,5 @@
 Makefile
 clusterMaster.app
 .DS_Store
+clusterLuck
+clusterLuck.exe
