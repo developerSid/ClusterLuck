@@ -4,6 +4,7 @@ mac {
   CONFIG -= app_bundle
 }
 TARGET = clusterLuck
+CONFIG += console
 unix:LIBS += -L/usr/lib -L$(BOOST_HOME)/lib -L$(MPI_HOME)/lib -lboost_mpi -lmpi -lmpi_cxx -lboost_system -lboost_serialization -lboost_thread
 unix:INCLUDEPATH += ./include
 unix:INCLUDEPATH += $(BOOST_HOME)/include

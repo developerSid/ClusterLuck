@@ -16,3 +16,4 @@
 .settings
 Makefile
 clusterMaster.app
+.DS_Store
