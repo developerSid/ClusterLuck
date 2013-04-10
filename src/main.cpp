@@ -1,25 +1,19 @@
-/*
- * main.cpp
- *
- *  Created on: Jan 13, 2013
- *      Author: developerSid@gmail.com
- */
+#include <boost/mpi/environment.hpp>
+#include <boost/mpi/communicator.hpp>
 #include <iostream>
+namespace mpi = boost::mpi;
 
-#include "ClusterConnection.hpp"
-#include "ClusterConnectionImpl.hpp"
-#include "ClusterPoller.hpp"
-#include "ClusterPollerImpl.hpp"
-
-int main(int argc, char **argv)
+int main(int argc, char* argv[])
 {
-   cluster::ClusterConnection *conn=new cluster::ClusterConnectionImpl(argc, argv);
-   cluster::ClusterPoller *poller=new cluster::ClusterPollerImpl(conn);
-
-   poller->poll();
-
-   delete poller;
-   delete conn;
-
-   return 0;
+  mpi::environment env(argc, argv);
+  mpi::communicator world;
+  
+  while(true)
+  {
+	 std::cout << "I am process " << world.rank() << " of " << world.size() << "." << std::endl;
+     
+     boost::this_thread::sleep_for(boost::chrono::milliseconds(1000));
+  }
+  
+  return 0;
 }

@@ -19,6 +19,7 @@ namespace cluster
    public:
       ClusterConnectionImpl(int argc, char **argv);
       int rank();
+	  int clusterSize();
       virtual ~ClusterConnectionImpl();
    private:
       boost::mpi::environment *env;

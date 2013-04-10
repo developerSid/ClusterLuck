@@ -16,6 +16,7 @@ namespace cluster
    struct ClusterConnection
    {
       virtual int rank()=0;
+      virtual int clusterSize()=0;
 
       virtual ~ClusterConnection(){};
    };

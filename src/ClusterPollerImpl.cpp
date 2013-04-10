@@ -21,8 +21,8 @@ namespace cluster
    {
       while(true)
       {
-         std::cout << connection->rank() <<std::endl;
-         boost::this_thread::sleep_for(boost::chrono::milliseconds(2));
+         std::cout << connection->rank() << " " << connection->clusterSize() << std::endl;
+         boost::this_thread::sleep_for(boost::chrono::milliseconds(1000));
       }
    }
    ClusterPollerImpl::~ClusterPollerImpl()

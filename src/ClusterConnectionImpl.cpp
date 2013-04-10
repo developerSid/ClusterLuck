@@ -18,6 +18,10 @@ namespace cluster
    {
       return this->world->rank();
    }
+   int ClusterConnectionImpl::clusterSize()
+   {
+	   return this->world->size();
+   }
    ClusterConnectionImpl::~ClusterConnectionImpl()
    {
       delete this->world;
